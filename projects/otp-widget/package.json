@@ -22,11 +22,10 @@
   },
   "keywords": [
     "angular",
-    "angular",
-    "component",
+    "angularcomponent",
     "otp",
-    "widget",
-    "lib"
+    "otp-verification",
+    "widget"
   ],
   "author": "@lbgm",
   "license": "MIT",
