@@ -1,0 +1,41 @@
+<div
+    #parent
+    class="widget-otp-parent"
+    [ngClass]="gapTranslate"
+    data-widget="widget-otp-parent"
+  >
+    <span *ngIf="type === 'number'; then numberInputs; else textInputs;"></span>
+    <ng-template #numberInputs>
+      <input
+        *ngFor="let child of childsArray; index as key; trackBy: trackInputsField"
+        [attr.data-ref]="refName(key)"
+        type="number"
+        min="0"
+        max="9"
+        step="1"
+        maxlength="1"
+        autocomplete="off"
+        spellcheck="false"
+        inputmode="decimal"
+        [placeholder]="placeholder"
+        (keyup)="checkEvent($event)"
+        (input)="clearedToFocus($event)"
+        (paste)="codeFromClipboard($event)"
+      />
+    </ng-template>
+    <!---->
+    <ng-template #textInputs>
+      <input
+        *ngFor="let child of childsArray; index as key; trackBy: trackInputsField"
+        [attr.data-ref]="refName(key)"
+        type="text"
+        maxlength="1"
+        autocomplete="off"
+        spellcheck="false"
+        [placeholder]="placeholder"
+        (keyup)="checkEvent($event)"
+        (input)="clearedToFocus($event)"
+        (paste)="codeFromClipboard($event)"
+      />
+    </ng-template>
+</div>

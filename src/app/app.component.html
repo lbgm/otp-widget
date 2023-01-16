@@ -1,1 +1,5 @@
 <!-- content here -->
+<div class="container">
+  {{ otp }}
+  <otp-widget (filled)="filled($event)" (code)="otp = $event"></otp-widget>
+</div>

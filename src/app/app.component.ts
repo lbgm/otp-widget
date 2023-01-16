@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'otp-widget';
+
+  otp: string = '';
+
+  filled (arg: boolean) {
+    void 0;
+  }
 }
