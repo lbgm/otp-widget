@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "otpWidget": {
+      "projectType": "library",
+      "root": "projects/otp-widget",
+      "sourceRoot": "projects/otp-widget/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/otp-widget/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/otp-widget/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/otp-widget/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/otp-widget/src/test.ts",
+            "tsConfig": "projects/otp-widget/tsconfig.spec.json",
+            "karmaConfig": "projects/otp-widget/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "otp-widget"

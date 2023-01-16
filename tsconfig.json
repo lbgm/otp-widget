@@ -13,6 +13,12 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
+    "paths": {
+      "otp-widget": [
+        "dist/otp-widget/otp-widget",
+        "dist/otp-widget"
+      ]
+    },
     "importHelpers": true,
     "target": "es2017",
     "module": "es2020",
