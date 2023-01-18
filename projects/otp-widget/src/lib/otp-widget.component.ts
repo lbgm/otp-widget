@@ -97,15 +97,13 @@ export class OtpWidgetComponent implements OnInit, AfterViewChecked {
    */
   #watchCode (): void {
     //
-    if (this.#code.length !==0) {
-      const codeLength = this.#code.length;
-      const sendCode = this.#code.join("");
-      if (codeLength === this.childs) {
-        this.code.emit(sendCode);
-        this.filled.emit(true);
-      }
-      else if (codeLength === 0) this.code.emit("");
+    const codeLength = this.#code.length;
+    const sendCode = this.#code.join("");
+    if (codeLength === this.childs) {
+      this.code.emit(sendCode);
+      this.filled.emit(true);
     }
+    else if (codeLength === 0) this.code.emit("");
   }
 
   /**

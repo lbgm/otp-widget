@@ -25,7 +25,8 @@
     "angularcomponent",
     "otp",
     "otp-verification",
-    "widget"
+    "widget",
+    "lib"
   ],
   "author": "@lbgm",
   "license": "MIT",
