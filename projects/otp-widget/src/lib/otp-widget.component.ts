@@ -57,8 +57,15 @@ export class OtpWidgetComponent implements OnInit, AfterViewChecked {
       that.classList.remove('hasvalue');
       if (prevSibling) prevSibling.focus();
     }
-  };
 
+    // watch code
+    this.#watchCode();
+  }
+
+  /**
+   * When User pastes code from clipboard
+   * @param {ClipboardEvent} e
+   */
   codeFromClipboard (e: ClipboardEvent): void {
     const codep = String((e.clipboardData as DataTransfer).getData('Text')).trim();
     const ins = (this.parent?.nativeElement as HTMLElement).querySelectorAll("input");
@@ -71,17 +78,23 @@ export class OtpWidgetComponent implements OnInit, AfterViewChecked {
         })
       }
     }
+
+    // watch code
+    this.#watchCode();
   };
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    // console.log({ changes });
+    // do something
   }
 
   ngAfterViewChecked() {
-   this.#watchCode();
+   // do something
   }
 
+  /**
+   * Function to check inputs and emits events
+   */
   #watchCode (): void {
     //
     if (this.#code.length !==0) {
@@ -91,10 +104,16 @@ export class OtpWidgetComponent implements OnInit, AfterViewChecked {
         this.code.emit(sendCode);
         this.filled.emit(true);
       }
-      else if (codeLength === 0) this.code.emit(sendCode);
+      else if (codeLength === 0) this.code.emit("");
     }
   }
 
+  /**
+   * track *ngFor inputs
+   * @param {number} index
+   * @param {number} item
+   * @returns {number}
+   */
   trackInputsField (index: number, item: number): number {
     void index;
     return item;
